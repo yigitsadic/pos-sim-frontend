@@ -1,5 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import { Sales } from "./components/Sales";
+import { Products } from "./components/Products";
 
 const Header = styled.h1`
   text-align: center;
@@ -9,8 +17,32 @@ const Header = styled.h1`
 
 export const App = () => {
   return (
-    <Header>
-      Hello React!
-    </Header>
+    <Router>
+      <Header>Hello React!</Header>
+
+      <ul>
+        <li>
+          <Link to="/sales">Sales</Link>
+        </li>
+
+        <li>
+          <Link to="/products">Products</Link>
+        </li>
+      </ul>
+
+      <Switch>
+        <Route path="/sales">
+          <Sales />
+        </Route>
+
+        <Route path="/products">
+          <Products />
+        </Route>
+
+        <Route path="/">
+          <Sales />
+        </Route>
+      </Switch>
+    </Router>
   );
 };
