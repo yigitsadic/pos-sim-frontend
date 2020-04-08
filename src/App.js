@@ -11,6 +11,8 @@ import {
 import { Sales } from "./components/Sales";
 import { Products } from "./components/Products";
 
+import PosTerminalIcon from './images/pos-terminal.svg';
+
 const client = new ApolloClient({
   uri: 'http://localhost:3000/graphql',
 });
@@ -24,6 +26,8 @@ const Header = styled.h1`
 export const App = () => {
   return (
     <ApolloProvider client={client}>
+      <img src={PosTerminalIcon} width={64} />
+
       <Router>
         <Header>Hello React!</Header>
 
