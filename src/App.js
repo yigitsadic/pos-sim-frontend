@@ -11,8 +11,6 @@ import {
 import { Sales } from "./components/Sales";
 import { Products } from "./components/Products";
 
-import PosTerminalIcon from './images/pos-terminal.svg';
-
 const client = new ApolloClient({
   uri: 'http://localhost:3000/graphql',
 });
@@ -20,40 +18,34 @@ const client = new ApolloClient({
 const Header = styled.h1`
   text-align: center;
   font-size: 2rem;
-  color: green;
+  font-family: 'Indie Flower', cursive;
+  color: #e07224;
+`;
+
+const MainContent = styled.main`
+  text-align: center;
 `;
 
 export const App = () => {
   return (
     <ApolloProvider client={client}>
-      <img src={PosTerminalIcon} width={64} />
-
+      <Header>POS Simulator</Header>
       <Router>
-        <Header>Hello React!</Header>
+        <MainContent>
+          <Switch>
+            <Route path="/sales">
+              <Sales />
+            </Route>
 
-        <ul>
-          <li>
-            <Link to="/sales">Sales</Link>
-          </li>
+            <Route path="/products">
+              <Products />
+            </Route>
 
-          <li>
-            <Link to="/products">Products</Link>
-          </li>
-        </ul>
-
-        <Switch>
-          <Route path="/sales">
-            <Sales />
-          </Route>
-
-          <Route path="/products">
-            <Products />
-          </Route>
-
-          <Route path="/">
-            <Sales />
-          </Route>
-        </Switch>
+            <Route path="/">
+              <Sales />
+            </Route>
+          </Switch>
+        </MainContent>
       </Router>
     </ApolloProvider>
   );
