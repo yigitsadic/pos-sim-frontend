@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --mode development --open --hot",
+    "dev": "webpack-dev-server --mode development --hot",
     "build": "webpack --mode production"
   },
   "keywords": [],
@@ -17,6 +17,7 @@
     "normalize.css": "^8.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-hook-form": "^5.4.0",
     "react-router-dom": "^5.1.2",
     "styled-components": "^5.1.0"
   },
