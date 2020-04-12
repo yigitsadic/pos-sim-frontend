@@ -5,11 +5,10 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import { Sales } from "./components/Sales";
-import { Products } from "./components/Products";
+import { Products } from './components/products/Products';
 
 const client = new ApolloClient({
   uri: 'http://localhost:3000/graphql',

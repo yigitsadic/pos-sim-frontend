@@ -12,19 +12,17 @@ const PRODUCTS = gql`
 }
 `;
 
-export const Products = () => {
+export const ProductList = () => {
   const { loading, error, data } = useQuery(PRODUCTS);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error</p>;
 
   return <React.Fragment>
-    Hello this is Products
-
     {data.products.map(({ _id, name, price }) => {
-    return <div key={_id}>
-      {name}: ₺{price}
-    </div>
-  })}
+      return <div key={_id}>
+        {name}: ₺{price}
+      </div>
+    })}
   </React.Fragment>
 }
