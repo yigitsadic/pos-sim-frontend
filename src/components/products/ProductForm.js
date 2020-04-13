@@ -41,7 +41,7 @@ export const ProductForm = () => {
         const { products } = cache.readQuery({ query: LIST_PRODUCTS_QUERY });
         cache.writeQuery({
           query: LIST_PRODUCTS_QUERY,
-          data: { products: products.concat([createProduct]) },
+          data: { products: [createProduct, ...products] },
         });
       }
     }
