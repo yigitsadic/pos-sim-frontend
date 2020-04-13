@@ -14,18 +14,20 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     background-color: ${props => props.theme.bg_primary};
-    font-size: 16px;
+    color: ${props => props.theme.e07224};
+    font-size: 1rem;
+    font-family: 'Press Start 2P', cursive;
   }
 `;
 
 const theme = {
-  text_primary: '#b6b6b6',
+  text_primary: '#e07224',
   text_secondary: '#ececec',
   bg_primary: '#f5eb95',
-  bg_secondary: '#141418'
+  bg_secondary: '#e07224'
 };
 
 ReactDOM.render(<ThemeProvider theme={theme}>
   <GlobalStyle />
   <App />
-</ThemeProvider>, document.getElementById('app'));
+</ThemeProvider >, document.getElementById('app'));

@@ -1,51 +1,37 @@
 import React from "react";
 import styled from "styled-components";
-import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from '@apollo/react-hooks';
 import {
   BrowserRouter as Router,
-  Switch,
-  Route
 } from "react-router-dom";
-import { Sales } from "./components/Sales";
-import { Products } from './components/products/Products';
+import ApolloClient from 'apollo-boost';
+
+import { GlobalProvider } from "./context/GlobalState";
+import { AppSwitches } from "./components/AppSwitches";
+import { ApolloProvider } from "@apollo/react-hooks";
+import { MainNav } from "./components/MainNav";
 
 const client = new ApolloClient({
   uri: 'http://localhost:3000/graphql',
 });
 
-const Header = styled.h1`
-  text-align: center;
-  font-size: 2rem;
-  font-family: 'Indie Flower', cursive;
-  color: #e07224;
-`;
-
 const MainContent = styled.main`
   text-align: center;
+  width: 70vw;
+  margin: auto;
 `;
 
 export const App = () => {
   return (
-    <ApolloProvider client={client}>
-      <Header>POS Simulator</Header>
-      <Router>
+    <GlobalProvider>
+      <ApolloProvider client={client}>
         <MainContent>
-          <Switch>
-            <Route path="/sales">
-              <Sales />
-            </Route>
+          <MainNav />
 
-            <Route path="/products">
-              <Products />
-            </Route>
-
-            <Route path="/">
-              <Sales />
-            </Route>
-          </Switch>
+          <Router>
+            <AppSwitches />
+          </Router>
         </MainContent>
-      </Router>
-    </ApolloProvider>
+      </ApolloProvider>
+    </GlobalProvider>
   );
 };
