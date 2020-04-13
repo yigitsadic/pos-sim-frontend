@@ -15,7 +15,6 @@ const client = new ApolloClient({
 });
 
 const MainContent = styled.main`
-  text-align: center;
   width: 70vw;
   margin: auto;
 `;
